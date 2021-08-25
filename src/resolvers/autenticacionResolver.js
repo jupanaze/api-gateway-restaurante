@@ -25,3 +25,5 @@ const autenticacionResolver = {
         },
     }
 }
+
+module.exports = autenticacionResolver

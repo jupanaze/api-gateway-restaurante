@@ -32,4 +32,4 @@ class inventarioAPI extends RESTDataSource {
     }
 }
 
-module.exports =  autenticacionAPI
+module.exports =  inventarioAPI
