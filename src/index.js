@@ -11,14 +11,19 @@ const server = new ApolloServer({
     context: authentication,
     typeDefs,
     resolvers,
-    dataSources: () => ({
-        pedidosAPI: new PedidosAPI(),
-        //usersAPI: new UsersAPI(),
-    }),
+    dataSources: () => {
+        return{
+            pedidosAPI: new PedidosAPI(),
+            autenticacionAPI: new AutenticacionAPI()
+        }
+    },
     introspection: true,
     playground: true
 });
 
-server.listen(process.env.PORT || 4000).then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
-});
+server.listen(4000).then(res => {
+    console.log(`🚀  Server ready at ${res.url}`);
+})
+//server.listen(process.env.PORT || 4000).then(({ url }) => {
+//    console.log(`🚀  Server ready at ${url}`);
+//});
