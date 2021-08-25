@@ -5,7 +5,7 @@ const autenticacionResolver = {
         },
         usuarioById: function (parent, { id }, { dataSource }){
             if(id.id == userIdToken) 
-                return dataSources.autenticacionAPI.usuarioById(id)
+                return dataSources.autenticacionAPI.usuarioById(id);
             else
                 return null
         }  
@@ -26,4 +26,4 @@ const autenticacionResolver = {
     }
 }
 
-module.exports = autenticacionResolver
+module.exports = autenticacionResolver;

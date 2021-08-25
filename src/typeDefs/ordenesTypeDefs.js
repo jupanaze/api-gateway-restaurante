@@ -32,9 +32,9 @@ input FinalizarCompraInput {
 
 type ConsultarOrdenes {
     id_order: Int
-    id_person_id: Int,
-    precio_total: Int,
-    address_order: String,
+    id_person_id: Int
+    precio_total: Int
+    address_order: String
     estado_order_id: String
     id_person: Int
 }
@@ -54,7 +54,7 @@ input ConsultarOrdenClienteInput {
 }
 
 extend type Query {
-    consultarOrdenes(): [ConsultarOrdenes]
+    consultarOrdenes(d_person: Int!): [ConsultarOrdenes]
     consultarOrdenesCliente(id_person: Int!): [ConsultarOrdenes]
     consultarCarritoCliente(consulta: ConsultarOrdenClienteInput!): [ConsultarOrdenes]
 }

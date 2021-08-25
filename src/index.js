@@ -4,9 +4,9 @@ const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const PedidosAPI = require('./dataSources/pedidosApi');
-const UsersAPI = require('./dataSources/usersApi');
-const authentication = require('./util/authentication');
-
+const authentication = require('./util/autenticacion');
+const AutenticacionAPI = require('./dataSources/autenticacionApi');
+const InventarioAPI = require('./dataSources/inventarioApi');
 const server = new ApolloServer({
     context: authentication,
     typeDefs,
@@ -14,7 +14,9 @@ const server = new ApolloServer({
     dataSources: () => {
         return{
             pedidosAPI: new PedidosAPI(),
-            autenticacionAPI: new AutenticacionAPI()
+            autenticacionAPI: new AutenticacionAPI(),
+            autenticacionApi: new AutenticacionAPI(),
+            inventarioApi: new InventarioAPI()
         }
     },
     introspection: true,

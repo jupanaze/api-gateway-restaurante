@@ -15,7 +15,7 @@ const autenticacionTypeDefs = gql`
         message: String!
     }
 
-    type UsuarioNuevo {
+    input UsuarioNuevo {
         username: String!
         password: String!
         email: String!
@@ -25,7 +25,7 @@ const autenticacionTypeDefs = gql`
         phone_number: Int!
     }
 
-    type UsuarioViejo {
+    input UsuarioViejo {
         username: String!
         email: String!
         first_name: String!
@@ -44,11 +44,11 @@ const autenticacionTypeDefs = gql`
         phone_number: Int!
     }
 
-    type NombreUsuario {
+    input NombreUsuario {
         username: String!
     }
 
-    type IdUsuario {
+    input IdUsuario {
         id: Int!
     }
 
