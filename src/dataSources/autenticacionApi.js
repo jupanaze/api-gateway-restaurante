@@ -13,7 +13,7 @@ class AutenticacionAPI extends RESTDataSource {
     }
 
     async usuarioById(id){
-        return await this.get('/buscar/', id);
+        return await this.get('/buscar/'+ id);
     }
 
     async authRequest(credentials){

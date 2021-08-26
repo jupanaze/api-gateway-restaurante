@@ -6,9 +6,9 @@ type AgregarProducto {
 }
 
 input AgregarProductoInput {
-    id_producto: Int
-    cantidad: Int
-    id: Int
+    id_producto: Int!
+    cantidad: Int!
+    id: Int!
 }
 
 type EliminarProducto {
@@ -16,8 +16,8 @@ type EliminarProducto {
 }
 
 input EliminarProductoInput {
-    id_order: Int
-    id_producto: Int
+    id_order: Int!
+    id_producto: Int!
     id: Int
 }
 
@@ -26,8 +26,9 @@ type FinalizarCompra {
 }
 
 input FinalizarCompraInput {
-    id_order: Int
+    id_order: Int!
     id: Int
+    address_order: String!
 }
 
 type ConsultarOrdenes {
@@ -43,13 +44,13 @@ type CancelarCompra {
 }
 
 input CancelarCompraInput {
-    id_order: Int
+    id_order: Int!
     id: Int
 }
 
 input ConsultarOrdenClienteInput {
-    id_order: Int
-    id: Int
+    id_order: Int!
+    id: Int!
 }
 
 extend type Query {

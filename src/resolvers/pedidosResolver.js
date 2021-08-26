@@ -12,7 +12,8 @@ const pedidosResolver = {
             else
                 return null
         },
-        consultarCarritoCliente: (_, { consulta }, {dataSources, userIdToken}) => {
+        consultarCarritoCliente: (_, { consulta }, {dataSources}) => {
+            return dataSources.pedidosAPI.consultarCarritoCliente(consulta)
             if(consulta.id == userIdToken) 
                 return dataSources.pedidosAPI.consultarCarritoCliente(consulta)
             else

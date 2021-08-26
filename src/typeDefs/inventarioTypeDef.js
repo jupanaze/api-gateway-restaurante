@@ -40,7 +40,7 @@ const InventarioTypeDefs = gql`
     extend type Query {
         productoByNombre(nombre: BucarNombreInput!): [Producto]
         carta(id_producto: BucarIdInput!):[Producto]
-        productoById(id_producto: BucarIdInput!): [Producto]
+        productoById(id_producto: Int!): [Producto]
     } 
 
     extend type Mutation {

@@ -13,12 +13,14 @@ class PedidosAPI extends RESTDataSource {
     }
 
     async consultarOrdenesCliente(id_person){
-        return await this.get('/order/consultarcarrito/cliente/', {id_person});    
+        return await this.get('/order/consultarcarrito/cliente', {id_person});    
     }
 
     async consultarCarritoCliente(consulta){
+        console.log(consulta)
         consulta = new Object(JSON.parse(JSON.stringify(consulta)));
-        return await this.get(`/order/carrito/cliente/`, consulta);
+        console.log(consulta)
+        return await this.get(`/order/carrito/cliente`, consulta);
     }
     async agregarProductoCarrito(producto){
         producto = new Object(JSON.parse(JSON.stringify(producto)));
@@ -27,7 +29,7 @@ class PedidosAPI extends RESTDataSource {
 
     async eliminarProductoCarrito(eliminar){
         eliminar = new Object(JSON.parse(JSON.stringify(eliminar)));
-        return await this.delete('/detalleorder/eliminar/', eliminar);    
+        return await this.delete('/detalleorder/eliminar', eliminar);    
     }
 
     async finalizarCompra(finalizar){

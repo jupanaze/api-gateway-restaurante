@@ -10,15 +10,14 @@ class InventarioAPI extends RESTDataSource {
 
     async productoByNombre(nombre){
         nombre = new Object(JSON.parse(JSON.stringify(nombre)));
-        data = nombre;
-        return await this.get('/producto/', data);
+        return await this.get('/producto/', nombre);
     }
     async carta(){
         return await this.get('/carta/');
     }
 
     async productoById(id_producto){
-        return await this.get('/buscar/', id_producto);
+        return await this.get('/buscar/' + id_producto);
     }
 
     async createProducto(nuevoProducto){
