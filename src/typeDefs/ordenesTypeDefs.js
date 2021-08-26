@@ -6,9 +6,9 @@ type AgregarProducto {
 }
 
 input AgregarProductoInput {
-    id_inventario: Int
-    cantidad: String
-    id_person: Int
+    id_producto: Int
+    cantidad: Int
+    id: Int
 }
 
 type EliminarProducto {
@@ -17,8 +17,8 @@ type EliminarProducto {
 
 input EliminarProductoInput {
     id_order: Int
-    id_inventario: Int
-    id_person: Int
+    id_producto: Int
+    id: Int
 }
 
 type FinalizarCompra {
@@ -27,16 +27,15 @@ type FinalizarCompra {
 
 input FinalizarCompraInput {
     id_order: Int
-    id_person: Int
+    id: Int
 }
 
 type ConsultarOrdenes {
     id_order: Int
-    id_person_id: Int
+    id_person: Int
     precio_total: Int
     address_order: String
     estado_order_id: String
-    id_person: Int
 }
 
 type CancelarCompra {
@@ -45,21 +44,21 @@ type CancelarCompra {
 
 input CancelarCompraInput {
     id_order: Int
-    id_person: Int
+    id: Int
 }
 
 input ConsultarOrdenClienteInput {
     id_order: Int
-    id_person: Int
+    id: Int
 }
 
 extend type Query {
-    consultarOrdenes(d_person: Int!): [ConsultarOrdenes]
-    consultarOrdenesCliente(id_person: Int!): [ConsultarOrdenes]
+    consultarOrdenes(id: Int!): [ConsultarOrdenes]
+    consultarOrdenesCliente(id: Int!): [ConsultarOrdenes]
     consultarCarritoCliente(consulta: ConsultarOrdenClienteInput!): [ConsultarOrdenes]
 }
 
-type Mutation {
+extend type Mutation {
     agregarProductoCarrito(producto: AgregarProductoInput!): AgregarProducto
     eliminarProductoCarrito(eliminar: EliminarProductoInput!): EliminarProducto
     finalizarCompra(finalizar: FinalizarCompraInput!): FinalizarCompra

@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 const InventarioTypeDefs = gql`
 
     type Producto {
-        id_producto: Int!
+        id_producto: Int
         nombre: String!
         precio: Int!
         descripcion: String!
@@ -37,13 +37,13 @@ const InventarioTypeDefs = gql`
         id_producto: Int!
     }
 
-    type Query {
-        productoByNombre(nombre: BucarNombreInput!): Producto
+    extend type Query {
+        productoByNombre(nombre: BucarNombreInput!): [Producto]
         carta(id_producto: BucarIdInput!):[Producto]
-        productoById(id_producto: BucarIdInput!): Producto
+        productoById(id_producto: BucarIdInput!): [Producto]
     } 
 
-    type Mutation {
+    extend type Mutation {
         createProducto(nuevoProducto: NuevoProducto!): Mensaje
         deleteProducto(nombre: BucarNombreInput!): Mensaje
         postCantidad(cantidad: Cantidad!): Mensaje

@@ -54,7 +54,7 @@ const autenticacionTypeDefs = gql`
 
     input CredentialsInput {
         username: String!
-        passsword: String!
+        password: String!
     }
 
     type Query {

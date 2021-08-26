@@ -13,10 +13,9 @@ const server = new ApolloServer({
     resolvers,
     dataSources: () => {
         return{
-            pedidosAPI: new PedidosAPI(),
             autenticacionAPI: new AutenticacionAPI(),
-            autenticacionApi: new AutenticacionAPI(),
-            inventarioApi: new InventarioAPI()
+            inventarioAPI: new InventarioAPI(),
+            pedidosAPI: new PedidosAPI()
         }
     },
     introspection: true,

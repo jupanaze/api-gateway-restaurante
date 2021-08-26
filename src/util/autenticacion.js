@@ -10,7 +10,12 @@ const authentication = async ({ req }) => {
 
     else {
         try {
-            let requestOptions = { method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token }), redirect: 'follow' };
+            let requestOptions = { 
+                method: 'POST', 
+                headers: { "Content-Type": "application/json" }, 
+                body: JSON.stringify({ token }), 
+                redirect: 'follow' 
+            };
             let response = await fetch(`${serverConfig.autenticacionApiUrl}/token/verify/`, requestOptions)
 
             if (response.status != 200) throw new ApolloError(`SESION INACTIVA - ${401}`, 401)

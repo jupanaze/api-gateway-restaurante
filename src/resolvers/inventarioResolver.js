@@ -1,23 +1,23 @@
 const inventarioResolver = {
     Query: {
-        productoByNombre: function (parent, { nombre }, { dataSource }){
-            return dataSources.inventarioApiUrl.usurioByUsername(nombre);
+        productoByNombre: function (_, { nombre }, { dataSources }){
+            return dataSources.inventarioAPI.productoByNombre(nombre);
         },
-        carta: function (parent, { }, { dataSource }){
-            return dataSources.inventarioAPI.usuarioById();
+        carta: function (parent, { }, { dataSources }){
+            return dataSources.inventarioAPI.carta();
         },
-        productoById: function (parent, { id_producto }, { dataSource }){
-            return dataSources.inventarioAPI.usurioByUsername(id_producto);
+        productoById: function (parent, { id_producto }, { dataSources }){
+            return dataSources.inventarioAPI.productoById(id_producto);
         },
     },
     Mutation: {
-        createProducto: function (parent, { nuevoProducto }, { dataSource }){
+        createProducto: function (parent, { nuevoProducto }, { dataSources }){
             return dataSources.inventarioAPI.createProducto(nuevoProducto);
         },
-        deleteProducto: function (parent, { nombre }, { dataSource }){
+        deleteProducto: function (parent, { nombre }, { dataSources }){
             return dataSources.inventarioAPI.deleteProducto(nombre);
         },
-        postCantidad: function (parent, { cantidad }, { dataSource }){
+        postCantidad: function (parent, { cantidad }, { dataSources }){
             return dataSources.inventarioAPI.postCantidad(cantidad);
         },
     }

@@ -1,16 +1,18 @@
 const { RESTDataSource } = require("apollo-datasource-rest");
 const { inventarioApiUrl } = require('../server')
+const serverConfig = require('../server');
 
-class inventarioAPI extends RESTDataSource {
+class InventarioAPI extends RESTDataSource {
     constructor(){
         super();
-        this.baseURL  =  inventarioApiUrl;
+        this.baseURL  =  serverConfig.inventarioApiUrl;
     }
 
     async productoByNombre(nombre){
-        return await this.get('/actualizar/', nombre);
+        nombre = new Object(JSON.parse(JSON.stringify(nombre)));
+        data = nombre;
+        return await this.get('/producto/', data);
     }
- 
     async carta(){
         return await this.get('/carta/');
     }
@@ -28,8 +30,8 @@ class inventarioAPI extends RESTDataSource {
     }
 
     async postCantidad(cantidad){
-        return await this.post('/cantidad/', cantidad);
+        return await this.put('/cantidad/', cantidad);
     }
 }
 
-module.exports =  inventarioAPI
+module.exports =  InventarioAPI

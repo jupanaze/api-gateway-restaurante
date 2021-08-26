@@ -1,9 +1,9 @@
 const autenticacionResolver = {
     Query: {
-        usurioByUsername: function (parent, { username }, { dataSource }){
+        usurioByUsername: function (parent, { username }, { dataSources }){
             return dataSources.autenticacionAPI.usurioByUsername(username);
         },
-        usuarioById: function (parent, { id }, { dataSource }){
+        usuarioById: function (parent, { id }, { dataSources }){
             if(id.id == userIdToken) 
                 return dataSources.autenticacionAPI.usuarioById(id);
             else
@@ -11,16 +11,14 @@ const autenticacionResolver = {
         }  
     },
     Mutation: {
-        authenticate: function (parent, { credentials }, { dataSource }){
-            return dataSources.autenticacionAPI.authenticate(credentials);
-        },
-        refreshToken: function (parent, { refresh }, { dataSource }){
+        authenticate: (_, { credentials }, { dataSources }) => dataSources.autenticacionAPI.authRequest(credentials),
+        refreshToken: function (parent, { refresh }, { dataSources }){
             return dataSources.autenticacionAPI.refreshToken(refresh);
         },
-        registro: function (parent, { usuario }, { dataSource }){
+        registro: function (parent, { usuario }, { dataSources }){
             return dataSources.autenticacionAPI.registro(usuario);
         },
-        actualizar: function (parent, { usuario }, { dataSource }){
+        actualizar: function (parent, { usuario }, { dataSources }){
             return dataSources.autenticacionAPI.actualizar(usuario);
         },
     }

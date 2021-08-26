@@ -4,6 +4,6 @@ const autenticacionResolver = require('./autenticacionResolver');
 
 const lodash = require('lodash');
 
-const resolvers = lodash.merge(pedidosResolver, inventarioResolver, autenticacionResolver);
+const resolvers = lodash.merge(autenticacionResolver, inventarioResolver, pedidosResolver );
 
 module.exports = resolvers;
