@@ -3,8 +3,8 @@ const autenticacionResolver = {
         usurioByUsername: function (parent, { username }, { dataSources }){
             return dataSources.autenticacionAPI.usurioByUsername(username);
         },
-        usuarioById: function (parent, { id }, { dataSources }){
-            if(id.id == userIdToken) 
+        usuarioById: function (parent, { id }, { dataSources, userIdToken }){
+            if(id == userIdToken) 
                 return dataSources.autenticacionAPI.usuarioById(id);
             else
                 return null

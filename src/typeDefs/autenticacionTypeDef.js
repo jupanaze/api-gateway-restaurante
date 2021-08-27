@@ -58,8 +58,8 @@ const autenticacionTypeDefs = gql`
     }
 
     type Query {
-        usurioByUsername(username: NombreUsuario!): Usuario!
-        usuarioById(id: Int!): Usuario!
+        usurioByUsername(username: String!): Usuario!
+        usuarioById(id: Int!): [Usuario!]
     }
 
     type Mutation {

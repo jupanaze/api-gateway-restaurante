@@ -11,8 +11,8 @@ const InventarioTypeDefs = gql`
         categoria: String!
     }
 
-    type Mensaje {
-        message: String!
+    type MensajeInventario {
+        mensaje: String!
     }
 
     input NuevoProducto {
@@ -25,7 +25,7 @@ const InventarioTypeDefs = gql`
     }
 
     input Cantidad {
-        nombre: String!
+        id_producto: Int!
         cantidad: Int!
     }
 
@@ -44,9 +44,9 @@ const InventarioTypeDefs = gql`
     } 
 
     extend type Mutation {
-        createProducto(nuevoProducto: NuevoProducto!): Mensaje
-        deleteProducto(nombre: BucarNombreInput!): Mensaje
-        postCantidad(cantidad: Cantidad!): Mensaje
+        createProducto(nuevoProducto: NuevoProducto!): MensajeInventario
+        deleteProducto(nombre: BucarNombreInput!): MensajeInventario
+        postCantidad(cantidad: Cantidad!): MensajeInventario
     }
 
 `;

@@ -12,8 +12,8 @@ class PedidosAPI extends RESTDataSource {
         return await this.get(`/detalleorder/consultar/`);    
     }
 
-    async consultarOrdenesCliente(id_person){
-        return await this.get('/order/consultarcarrito/cliente', {id_person});    
+    async consultarOrdenesCliente(id){
+        return await this.get('/order/consultarcarrito/cliente', {id});    
     }
 
     async consultarCarritoCliente(consulta){

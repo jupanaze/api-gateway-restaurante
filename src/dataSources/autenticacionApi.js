@@ -9,7 +9,7 @@ class AutenticacionAPI extends RESTDataSource {
     }
 
     async usurioByUsername(username){
-        return await this.get('/actualizar/', username);
+        return await this.get('/actualizar', username);
     }
 
     async usuarioById(id){
@@ -31,7 +31,7 @@ class AutenticacionAPI extends RESTDataSource {
     }
 
     async actualizar(usuario){
-        return await this.put('/actualizar/', usuario);
+        return await this.put('/actualizar', usuario);
     }
 }
 

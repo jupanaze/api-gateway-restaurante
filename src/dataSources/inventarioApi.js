@@ -10,7 +10,7 @@ class InventarioAPI extends RESTDataSource {
 
     async productoByNombre(nombre){
         nombre = new Object(JSON.parse(JSON.stringify(nombre)));
-        return await this.get('/producto/', nombre);
+        return await this.get('/producto', nombre);
     }
     async carta(){
         return await this.get('/carta/');
@@ -21,11 +21,11 @@ class InventarioAPI extends RESTDataSource {
     }
 
     async createProducto(nuevoProducto){
-        return await this.post('/token/producto/', nuevoProducto);
+        return await this.post('producto', nuevoProducto);
     }
 
     async deleteProducto(nombre){
-        return await this.delete('/producto/', nombre);
+        return await this.delete('/producto', nombre);
     }
 
     async postCantidad(cantidad){

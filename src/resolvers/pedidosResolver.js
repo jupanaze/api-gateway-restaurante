@@ -2,7 +2,7 @@ const pedidosResolver = {
     Query: {
         consultarOrdenes: (_, { id }, {dataSources, userIdToken}) => {
             if(id == userIdToken) 
-                return dataSources.pedidosAPI.consultarOrdenes(userId)
+                return dataSources.pedidosAPI.consultarOrdenes(id)
             else
                 return null
         },
