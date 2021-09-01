@@ -8,12 +8,16 @@ class AutenticacionAPI extends RESTDataSource {
         this.baseURL  =  serverConfig.autenticacionApiUrl;
     }
 
-    async usurioByUsername(username){
-        return await this.get('/actualizar', username);
+    async usurioByUsername(username){  
+        var url = '/actualizar?username=';
+        var new_url = url+username
+        return await this.get(new_url);
     }
 
-    async usuarioById(id){
-        return await this.get('/buscar/'+ id);
+    async usuarioById(ids){
+        var url = '/buscar/';
+        var new_url = url+ids.id_search
+        return await this.get(new_url);
     }
 
     async authRequest(credentials){

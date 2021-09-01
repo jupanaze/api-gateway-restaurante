@@ -12,7 +12,7 @@ const autenticacionTypeDefs = gql`
     }
 
     type Mensaje {
-        message: String!
+        mensaje: String!
     }
 
     input UsuarioNuevo {
@@ -22,7 +22,7 @@ const autenticacionTypeDefs = gql`
         first_name: String!
         last_name: String!
         address: String!
-        phone_number: Int!
+        phone_number: String!
     }
 
     input UsuarioViejo {
@@ -31,17 +31,17 @@ const autenticacionTypeDefs = gql`
         first_name: String!
         last_name: String!
         address: String!
-        phone_number: Int!
+        phone_number: String!
     }
 
     type Usuario {
-        id: Int!
-        username: String!
-        email: String!
-        first_name: String!
-        last_name: String!
-        address: String!
-        phone_number: Int!
+        id: Int
+        username: String
+        email: String
+        first_name: String
+        last_name: String
+        address: String
+        phone_number: Int
     }
 
     input NombreUsuario {
@@ -50,6 +50,7 @@ const autenticacionTypeDefs = gql`
 
     input IdUsuario {
         id: Int!
+        id_search: Int!
     }
 
     input CredentialsInput {
@@ -58,8 +59,8 @@ const autenticacionTypeDefs = gql`
     }
 
     type Query {
-        usurioByUsername(username: String!): Usuario!
-        usuarioById(id: Int!): [Usuario!]
+        usurioByUsername(username: String!): [Usuario]
+        usuarioById(ids: IdUsuario!): [Usuario!]
     }
 
     type Mutation {

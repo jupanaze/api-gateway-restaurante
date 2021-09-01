@@ -1,11 +1,11 @@
 const autenticacionResolver = {
     Query: {
-        usurioByUsername: function (parent, { username }, { dataSources }){
+        usurioByUsername: function (_, { username }, { dataSources }){
             return dataSources.autenticacionAPI.usurioByUsername(username);
         },
-        usuarioById: function (parent, { id }, { dataSources, userIdToken }){
-            if(id == userIdToken) 
-                return dataSources.autenticacionAPI.usuarioById(id);
+        usuarioById: function (parent, { ids }, { dataSources, userIdToken }){
+            if(ids.id == userIdToken) 
+                return dataSources.autenticacionAPI.usuarioById(ids);
             else
                 return null
         }  
