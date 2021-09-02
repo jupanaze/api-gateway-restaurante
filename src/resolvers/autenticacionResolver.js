@@ -16,6 +16,7 @@ const autenticacionResolver = {
             return dataSources.autenticacionAPI.refreshToken(refresh);
         },
         registro: function (parent, { usuario }, { dataSources }){
+            console.log(usuario)
             return dataSources.autenticacionAPI.registro(usuario);
         },
         actualizar: function (parent, { usuario }, { dataSources }){

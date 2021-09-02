@@ -31,6 +31,7 @@ class AutenticacionAPI extends RESTDataSource {
     }     
 
     async registro(usuario){
+        console.log(usuario)
         return await this.post('/registro/', usuario);
     }
 

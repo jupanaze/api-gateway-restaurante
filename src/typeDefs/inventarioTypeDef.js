@@ -9,6 +9,7 @@ const InventarioTypeDefs = gql`
         descripcion: String!
         cantidad: Int!
         categoria: String!
+        imagen: String!
     }
 
     type MensajeInventario {
@@ -22,6 +23,7 @@ const InventarioTypeDefs = gql`
         descripcion: String!
         cantidad: Int!
         categoria: String!
+        imagen: String
     }
 
     input Cantidad {

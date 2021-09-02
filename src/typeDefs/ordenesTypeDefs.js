@@ -3,6 +3,7 @@ const { gql } = require('apollo-server');
 const ordenesTypeDefs = gql`
 type AgregarProducto {
     message: String!
+    order: Int!
 }
 
 input AgregarProductoInput {
@@ -38,7 +39,13 @@ type ConsultarOrdenes {
     address_order: String
     estado_order_id: String
 }
-
+type ConsultarCarrito {
+    id_detalles_order: Int
+    id_order_id: Int
+    id_producto: Int
+    cantidad: Int
+    valor_total: Int
+}
 type CancelarCompra {
     message: String!
 }
@@ -56,7 +63,7 @@ input ConsultarOrdenClienteInput {
 extend type Query {
     consultarOrdenes(id: Int!): [ConsultarOrdenes]
     consultarOrdenesCliente(id: Int!): [ConsultarOrdenes]
-    consultarCarritoCliente(consulta: ConsultarOrdenClienteInput!): [ConsultarOrdenes]
+    consultarCarritoCliente(consulta: ConsultarOrdenClienteInput!): [ConsultarCarrito]
 }
 
 extend type Mutation {

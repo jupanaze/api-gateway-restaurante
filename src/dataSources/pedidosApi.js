@@ -23,6 +23,7 @@ class PedidosAPI extends RESTDataSource {
         return await this.get(`/order/carrito/cliente`, consulta);
     }
     async agregarProductoCarrito(producto){
+        console.log(producto)
         producto = new Object(JSON.parse(JSON.stringify(producto)));
         return await this.post(`/detalleorder/agregar/`, producto);    
     }
